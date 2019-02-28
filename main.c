@@ -6,7 +6,7 @@
 #include "Funkcje.h"
 
 
-
+int massage;
 
 int  main(int argc , char *argv[])
 {
@@ -79,7 +79,7 @@ if(pointer2->bits_per_pixel ==24 ||pointer2->bits_per_pixel ==32)
     int x =3;
     if(argc == 5)
          x = atoi(argv[4]);
-    
+
     if( pointer2->bits_per_pixel ==24 )
     {
         if (strcmp(argv[3],"med") == 0)
@@ -241,7 +241,7 @@ if(pointer2->bits_per_pixel ==24 ||pointer2->bits_per_pixel ==32)
                 *dst_ptr++ = R;
                 *dst_ptr++ = A;
             }
- 
+
             src_line += scanline_size;
         }
     pointer2->image_size = 4 * bmp_width * bmp_height;
@@ -249,7 +249,7 @@ if(pointer2->bits_per_pixel ==24 ||pointer2->bits_per_pixel ==32)
     pointer->data_offset = 54;
     pointer2->bits_per_pixel = 32;
     pointer2->colors_used = 0;
-    
+
     data* pointer4;
     pointer4 = malloc(sizeof(data));
     pointer4->pixel_data = malloc(pointer2->image_size);
