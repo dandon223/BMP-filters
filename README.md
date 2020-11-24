@@ -6,15 +6,29 @@ You give commands to the program in terminal. Example: source.bmp newImage.bmp n
 In this example source.bmp will be loaded and on its copy negative filter would be applied with filter mask 15x15 pixels.
 Note that you can choose the area of the mask. The mask have to be square and its side has to be odd number.
 
-=====================================================================================================================================
+Examples:
 
+basic image:
 
+![alt text](https://github.com/dandon223/BMP-filters/blob/master/images/hwa.bmp?raw=true)
 
-//PLN
-Program wczytuje obraz BMP i dokonuje na nim roznych zmian poprzez zastosowanie filtrow.
-Przykladowe wywolanie (w terminalu) :     obrazek.bmp  obrazek2.bmp min 15
-W tym przypadku program wczyta obrazek.bmp , zastosuje na nim filtr minimalny  o szerokosci maski 15 pixeli oraz wynik zapisze w 
-nowo stworzonym obrazku
+average filter:
 
-inne filtry to med (medianowy), ave (usredniajacy), max (maksymalny), grey (czarno_bialy) , neg (negatyw)
-Format BMP mozr miec bits_per_pixel 24, 32, 16 lub 8 , z tym ze dla 16 przyjmuje tylko postac R5G5B5A0X1
+![alt text](https://github.com/dandon223/BMP-filters/blob/master/images/hwa_ave5.bmp?raw=true)
+
+grey filter:
+
+![alt text](https://github.com/dandon223/BMP-filters/blob/master/images/hwa_grey5.bmp?raw=true)
+
+median filter:
+
+![alt text](https://github.com/dandon223/BMP-filters/blob/master/images/hwa_med5.bmp?raw=true)
+
+minimal filter:
+
+![alt text](https://github.com/dandon223/BMP-filters/blob/master/images/hwa_min5.bmp?raw=true)
+
+negativ filter:
+
+![alt text](https://github.com/dandon223/BMP-filters/blob/master/images/hwa_neg5.bmp?raw=true)
+
