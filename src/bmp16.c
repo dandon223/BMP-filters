@@ -3,13 +3,13 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <string.h>
-#include "Funkcje.h"
+#include "..\include\Funkcje.h"
 //  R5G5B5A0X1
 void median_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*pointer4, int n)
 {
     int padding = what_padding(pointer2, 2 );
     uint16_t *tab;
-    
+
     int a = pointer2->width;
     int b = pointer2->height;
     int t = (n-1)/2;
@@ -29,10 +29,10 @@ void median_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*po
             int A[n*n];
             for(int g =0 ; g<n*n;g++)
             {
-             R[g] = ((tab[g] & 0xF800)>>10);
-             G[g] = ((tab[g] & 0x3E0)>>5);
-             B[g] = (tab[g] & 0x1F);
-             A[g] = ((tab[g]&0x1)>>15);
+                R[g] = ((tab[g] & 0xF800)>>10);
+                G[g] = ((tab[g] & 0x3E0)>>5);
+                B[g] = (tab[g] & 0x1F);
+                A[g] = ((tab[g]&0x1)>>15);
             }
             mergeSort(R, 0, n*n -1);
             mergeSort(G, 0, n*n -1);
@@ -45,15 +45,15 @@ void median_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*po
             uint16_t S =((R2<<10)|(G2<<5)|(A2<<15)|B2);
             pointer4->pixel_data2[i] = S;
         }
-   }
-free(tab);
+    }
+    free(tab);
 }
 
 void average_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*pointer4,int n)
 {
     int padding = what_padding(pointer2,2);
     uint16_t *tab;
-    
+
     int a = pointer2->width;
     int b = pointer2->height;
     int t = (n-1)/2;
@@ -73,10 +73,10 @@ void average_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*p
             int A[n*n];
             for(int g =0 ; g<n*n;g++)
             {
-             R[g] = ((tab[g] & 0xF800)>>10);
-             G[g] = ((tab[g] & 0x3E0)>>5);
-             B[g] = (tab[g] & 0x1F);
-             A[g] = ((tab[g]&0x1)>>15);
+                R[g] = ((tab[g] & 0xF800)>>10);
+                G[g] = ((tab[g] & 0x3E0)>>5);
+                B[g] = (tab[g] & 0x1F);
+                A[g] = ((tab[g]&0x1)>>15);
             }
             int sumaR=0;
             int sumaG=0;
@@ -96,15 +96,15 @@ void average_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*p
             uint16_t S =(sumaR<<10)|(sumaG<<5)|(sumaA<<15)|(sumaB);
             pointer4->pixel_data2[i] = S;
         }
-   }
-free(tab);
+    }
+    free(tab);
 }
 
 void minimal_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*pointer4,int n)
 {
     int padding = what_padding(pointer2,2);
     uint16_t *tab;
-    
+
     int a = pointer2->width;
     int b = pointer2->height;
     int t = (n-1)/2;
@@ -124,10 +124,10 @@ void minimal_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*p
             int A[n*n];
             for(int g =0 ; g<n*n;g++)
             {
-             R[g] = ((tab[g] & 0xF800)>>10);
-             G[g] = ((tab[g] & 0x3E0)>>5);
-             B[g] = (tab[g] & 0x1F);
-             A[g] = ((tab[g]&0x1)>>15);
+                R[g] = ((tab[g] & 0xF800)>>10);
+                G[g] = ((tab[g] & 0x3E0)>>5);
+                B[g] = (tab[g] & 0x1F);
+                A[g] = ((tab[g]&0x1)>>15);
             }
             mergeSort(R, 0, n*n -1);
             mergeSort(G, 0, n*n -1);
@@ -140,15 +140,15 @@ void minimal_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*p
             uint16_t S =((R2<<10)|(G2<<5)|(A2<<15)|B2);
             pointer4->pixel_data2[i] = S;
         }
-   }
-free(tab);
+    }
+    free(tab);
 }
 
 void maximal_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*pointer4,int n)
 {
     int padding = what_padding(pointer2,2);
     uint16_t *tab;
-    
+
     int a = pointer2->width;
     int b = pointer2->height;
     int t = (n-1)/2;
@@ -168,10 +168,10 @@ void maximal_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*p
             int A[n*n];
             for(int g =0 ; g<n*n;g++)
             {
-             R[g] = ((tab[g] & 0xF800)>>10);
-             G[g] = ((tab[g] & 0x3E0)>>5);
-             B[g] = (tab[g] & 0x1F);
-             A[g] = ((tab[g]&0x1)>>15);
+                R[g] = ((tab[g] & 0xF800)>>10);
+                G[g] = ((tab[g] & 0x3E0)>>5);
+                B[g] = (tab[g] & 0x1F);
+                A[g] = ((tab[g]&0x1)>>15);
             }
             mergeSort(R, 0, n*n -1);
             mergeSort(G, 0, n*n -1);
@@ -184,8 +184,8 @@ void maximal_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*p
             uint16_t S =((R2<<10)|(G2<<5)|(A2<<15)|B2);
             pointer4->pixel_data2[i] = S;
         }
-   }
-free(tab);
+    }
+    free(tab);
 }
 
 void grey_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*pointer4)
@@ -193,9 +193,9 @@ void grey_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*poin
     int padding = what_padding(pointer2,2);
     int a = pointer2->width;
     int b = pointer2->height;
-    for(int j=0;j<b;j++) 
+    for(int j=0;j<b;j++)
     {
-        for(int i = j*(a +padding) ; i< j*(a+padding)+(a+padding)-padding ;i= i +1) 
+        for(int i = j*(a +padding) ; i< j*(a+padding)+(a+padding)-padding ;i= i +1)
         {
             uint16_t  tab[1];
             tab[0] = pointer3->pixel_data2[i];
@@ -204,17 +204,17 @@ void grey_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*poin
             int B = (tab[0] & 0x1F);
             int A = ((tab[0]&0x1)>>15);
             int average = (R+G+B)/3;
-          //  printf("%i, %i, %i,%i, %i\n",R,G,B,A,average);
+            //  printf("%i, %i, %i,%i, %i\n",R,G,B,A,average);
             R = average;
             G = average;
             B = average;
 
             tab[0]=((R<<10)|(G<<5)|(A<<15)|B);
-         //   printf("%i, %i, %i, %i , %i\n",R,G,B,tab[0],tab[1]);
+            //   printf("%i, %i, %i, %i , %i\n",R,G,B,tab[0],tab[1]);
             pointer4->pixel_data2[i] = tab[0];
 
         }
-   }
+    }
 }
 
 void negative_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*pointer4)
@@ -238,5 +238,5 @@ void negative_16(struct InfoHeader *pointer2,struct data2*pointer3,struct data2*
             tab[0]=((R<<10)|(G<<5)|(A<<15)|B);
             pointer4->pixel_data2[i] = tab[0];
         }
-   }
+    }
 }

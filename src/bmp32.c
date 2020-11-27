@@ -3,13 +3,13 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <string.h>
-#include "Funkcje.h"
+#include "..\include\Funkcje.h"
 
 void median_32(struct InfoHeader *pointer2,struct data*pointer3,struct data*pointer4, int n)
 {
     int padding = what_padding(pointer2,4);
     int *tab;
-    
+
     int a = pointer2->width;
     int b = pointer2->height;
     int t = (n-1)/2;
@@ -23,18 +23,18 @@ void median_32(struct InfoHeader *pointer2,struct data*pointer3,struct data*poin
                 for(int e = 0 ; e<n ; e++)
                     tab[e+n*d] = pointer3->pixel_data[i-t*(a*4+padding) - t*4 + e*4 + d*(a*4+padding)];
             }
-                mergeSort(tab, 0, n*n -1);
+            mergeSort(tab, 0, n*n -1);
             pointer4->pixel_data[i] = tab[(n*n-1)/2];
         }
-   }
-free(tab);
+    }
+    free(tab);
 }
 
 void average_32(struct InfoHeader *pointer2,struct data*pointer3,struct data*pointer4,int n)
 {
     int padding = what_padding(pointer2,4);
     int *tab;
-    
+
     int a = pointer2->width;
     int b = pointer2->height;
     int t = (n-1)/2;
@@ -53,15 +53,15 @@ void average_32(struct InfoHeader *pointer2,struct data*pointer3,struct data*poi
                 suma = suma +tab[i];
             pointer4->pixel_data[i] = suma/(n*n);
         }
-   }
-free(tab);
+    }
+    free(tab);
 }
 
 void minimal_32(struct InfoHeader *pointer2,struct data*pointer3,struct data*pointer4,int n)
 {
     int padding = what_padding(pointer2,4);
     int *tab;
-    
+
     int a = pointer2->width;
     int b = pointer2->height;
     int t = (n-1)/2;
@@ -78,15 +78,15 @@ void minimal_32(struct InfoHeader *pointer2,struct data*pointer3,struct data*poi
             mergeSort(tab, 0, n*n -1);
             pointer4->pixel_data[i] = tab[0];
         }
-   }
-free(tab);
+    }
+    free(tab);
 }
 
 void maximal_32(struct InfoHeader *pointer2,struct data*pointer3,struct data*pointer4,int n)
 {
     int padding = what_padding(pointer2,4);
     int *tab;
-    
+
     int a = pointer2->width;
     int b = pointer2->height;
     int t = (n-1)/2;
@@ -103,8 +103,8 @@ void maximal_32(struct InfoHeader *pointer2,struct data*pointer3,struct data*poi
             mergeSort(tab, 0, n*n -1);
             pointer4->pixel_data[i] = tab[n*n-1];
         }
-   }
-free(tab);
+    }
+    free(tab);
 }
 
 void grey_32(struct InfoHeader *pointer2,struct data*pointer3,struct data*pointer4)
@@ -121,7 +121,7 @@ void grey_32(struct InfoHeader *pointer2,struct data*pointer3,struct data*pointe
             pointer4->pixel_data[i+1] = average;
             pointer4->pixel_data[i+2] = average;
         }
-   }
+    }
 }
 
 void negative_32(struct InfoHeader *pointer2,struct data*pointer3,struct data*pointer4)
@@ -137,5 +137,5 @@ void negative_32(struct InfoHeader *pointer2,struct data*pointer3,struct data*po
             pointer4->pixel_data[i+1] = 255 -pointer3->pixel_data[i+1];
             pointer4->pixel_data[i+2] = 255 - pointer3->pixel_data[i+2];
         }
-   }
+    }
 }
